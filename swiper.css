@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f9f90d;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.wrapper{
+    display: flex;
+    width: 900px;
+    position: relative;
+}
+
+.swiper-wrapper{
+    width: 900px;
+    overflow: hidden;   
+}
+.swiper{
+    display: flex;
+    position: relative;
+    cursor: grab;
+    left: 0;
+    transition: .4s;
+}
+
+
+.swiper img{
+    max-width: 100%;
+    width: 300px;
+    border-radius: 20px;
+    border: 5px solid white;
+}
+.swiper img + img{
+    margin-left: 20px;
+}
+
+
+button{
+    position: absolute;
+    top: 40%;
+    width: 70px;
+    height: 70px;
+    background-color: aquamarine;
+    border:5px solid green;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+}
+
+button::after{
+    content: "";
+    height: 30%;
+    width: 30%;
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    background: transparent;
+    transform: translate(-50%, -50%) rotate(45deg);
+    border: 5px solid black;
+    border-radius: 5px;
+    border-bottom: transparent;
+    border-left: transparent;
+    cursor: pointer;
+}
+
+.next{
+    right: 0;
+    transform: translateX(50%);
+}
+.prev{
+    left: 0;
+    transform: translateX(-50%);
+}
+.prev::after{
+    transform: translate(-30%, -50%) rotate(-135deg);
+}
+
+.dragable{
+    user-select: none;
+    cursor: grabbing;
+}
+
+.click-left{
+    transition: 1s;
+    animation: clickLeft .4s linear;
+}
+.click-right{
+    animation: clickRight .5s ease-in
+}
+
+@keyframes clickLeft{
+    50%{
+        transform: translateX(-50%) scale(.9);
+    }
+    100%{
+        transform:  translateX(-50%) scale(1);
+    }
+}
+
+
+@keyframes clickRight{
+    50%{
+        transform: translateX(50%) scale(.9);
+    }
+    100%{
+        transform:  translateX(50%) scale(1);
+    }
+}
